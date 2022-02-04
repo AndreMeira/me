@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  web-app:
+    user: "node"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=prod
+    container_name: team-leader-ui
+    volumes:
+       - .:/app
+networks:
+    default:
+        external:
+            name: deleevapi_network_${APP_ENV}
